@@ -3,40 +3,59 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Renk yönetimi
+ * - Ege mavisi: --ege-sea* (deepskyblue tabanlı vurgu / birincil mavi)
+ * - Koyu yüzeyler: --ege-surface* (arka plan lacivertleri)
+ * - Viewport themeColor: lib/site-assets.ts THEME_COLOR_DEEP_SURFACE ile --ege-surface-deep aynı tutulmalı.
+ */
 :root {
-  --background: oklch(34% 0.03 252);
-  --foreground: oklch(97% 0.005 240);
+  /* Ege mavisi — ana renk: deepskyblue; türevler aynı aileden */
+  --ege-sea: deepskyblue;
+  --ege-sea-deep: color-mix(in oklch, deepskyblue 42%, black);
+  --ege-sea-light: color-mix(in oklch, deepskyblue 52%, white);
+  --ege-sea-bright: color-mix(in oklch, deepskyblue 32%, white);
+  --ege-sea-soft: color-mix(in oklch, deepskyblue 62%, white);
 
-  --card: oklch(40% 0.028 250);
-  --card-foreground: oklch(97% 0.005 240);
+  /* --- Koyu yüzey (deniz tonuna yakın lacivert) --- */
+  --ege-surface-deep: #050a14;
+  --ege-surface-mid: #060d18;
+  --ege-surface-footer: #030712;
 
-  --popover: oklch(40% 0.028 250);
-  --popover-foreground: oklch(97% 0.005 240);
+  --background: oklch(16% 0.035 252);
+  --foreground: oklch(98% 0.005 240);
 
-  --primary: oklch(62% 0.18 250);
-  --primary-foreground: oklch(99% 0.005 240);
+  --card: oklch(20% 0.04 252);
+  --card-foreground: oklch(98% 0.005 240);
 
-  --secondary: oklch(44% 0.025 250);
-  --secondary-foreground: oklch(97% 0.005 240);
+  --popover: oklch(20% 0.04 252);
+  --popover-foreground: oklch(98% 0.005 240);
 
-  --muted: oklch(42% 0.025 250);
-  --muted-foreground: oklch(82% 0.015 240);
+  --primary: var(--ege-sea);
+  --primary-foreground: oklch(16% 0.02 252);
 
-  --accent: oklch(62% 0.18 250);
-  --accent-foreground: oklch(99% 0.005 240);
+  --secondary: oklch(26% 0.04 252);
+  --secondary-foreground: oklch(96% 0.01 240);
 
-  --destructive: oklch(60% 0.2 27);
-  --destructive-foreground: oklch(97% 0.005 240);
+  --muted: oklch(28% 0.03 252);
+  --muted-foreground: oklch(72% 0.02 240);
 
-  --border: oklch(55% 0.02 248 / 0.55);
-  --input: oklch(55% 0.02 248 / 0.6);
-  --ring: oklch(62% 0.18 250);
+  --accent: var(--ege-sea-light);
+  --accent-foreground: oklch(16% 0.02 252);
 
-  --radius: 0.75rem;
+  --destructive: oklch(58% 0.2 27);
+  --destructive-foreground: oklch(98% 0.005 252);
 
-  --brand-cyan: oklch(62% 0.18 250);
-  --brand-cyan-strong: oklch(55% 0.2 252);
-  --brand-bg: oklch(34% 0.03 252);
+  --border: oklch(34% 0.03 252 / 0.65);
+  --input: oklch(34% 0.03 252 / 0.7);
+  --ring: var(--ege-sea-light);
+
+  --radius: 0.875rem;
+
+  /* Utility içi color-mix için (ege-sea ile aynı) */
+  --brand-cyan: var(--ege-sea);
+  --brand-cyan-strong: var(--ege-sea-deep);
+  --brand-bg: oklch(14% 0.04 252);
 }
 
 @theme inline {
@@ -59,6 +78,16 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-ege-sea: var(--ege-sea);
+  --color-ege-sea-deep: var(--ege-sea-deep);
+  --color-ege-sea-light: var(--ege-sea-light);
+  --color-ege-sea-bright: var(--ege-sea-bright);
+  --color-ege-sea-soft: var(--ege-sea-soft);
+
+  --color-ege-surface-deep: var(--ege-surface-deep);
+  --color-ege-surface-mid: var(--ege-surface-mid);
+  --color-ege-surface-footer: var(--ege-surface-footer);
 
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-cyan-strong: var(--brand-cyan-strong);
@@ -88,58 +117,34 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--brand-cyan) 35%, transparent);
+    background: color-mix(in oklab, var(--ege-sea) 35%, transparent);
     color: var(--foreground);
   }
 }
 
 @layer utilities {
-  .bg-grid {
+  .bg-grid-dark {
     background-image:
       linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
+    background-size: 56px 56px;
   }
 
-  .bg-radial-fade {
-    background: radial-gradient(
-      ellipse 80% 60% at 50% 0%,
-      color-mix(in oklab, var(--brand-cyan) 10%, transparent),
-      transparent 70%
-    );
-  }
-
-  /* Solid accent — avoids multi-line bg-clip:text rendering glitches (rectangles). */
-  .text-gradient-brand {
-    color: var(--color-primary);
-    text-shadow:
-      0 0 1px oklch(0 0 0 / 0.85),
-      0 2px 16px oklch(0 0 0 / 0.55);
-  }
-
-  .hero-text-shadow {
-    text-shadow:
-      0 0 1px oklch(0 0 0 / 0.9),
-      0 2px 4px oklch(0 0 0 / 0.55),
-      0 8px 28px oklch(0 0 0 / 0.65);
-  }
-
-  .hero-sub-shadow {
-    text-shadow:
-      0 0 1px oklch(0 0 0 / 0.75),
-      0 2px 12px oklch(0 0 0 / 0.5);
-  }
-
-  .glass-card {
-    background: color-mix(in oklab, var(--card) 85%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
-  }
-
-  .glow-ring {
+  .btn-glow-ege-sea {
     box-shadow:
-      0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent),
-      0 12px 40px -12px oklch(0 0 0 / 0.6);
+      0 0 0 1px color-mix(in oklab, var(--ege-sea) 35%, transparent),
+      0 12px 40px -8px color-mix(in oklab, var(--ege-sea) 45%, transparent);
+  }
+
+  .card-dark {
+    background: color-mix(in oklab, var(--card) 92%, transparent);
+    border: 1px solid oklch(1 0 0 / 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .section-glow {
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 0.06),
+      0 0 80px -20px color-mix(in oklab, var(--ege-sea) 25%, transparent);
   }
 }

@@ -1,26 +1,51 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { SITE_LOGO } from "@/lib/site-assets";
 import { cn } from "@/lib/utils";
 
-export function Logo({ className }: { className?: string }) {
+type LogoProps = {
+  className?: string;
+  variant?: "dark" | "light";
+  priority?: boolean;
+  compact?: boolean;
+};
+
+export function Logo({
+  className,
+  variant = "dark",
+  priority = false,
+  compact = false,
+}: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="Ege360 ana sayfa"
+      aria-label="EgeKOBİ ana sayfa"
       className={cn(
-        "group inline-flex items-center gap-2 text-xl font-semibold tracking-tight",
+        "inline-flex shrink-0 items-center transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        variant === "light" &&
+          "drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.15)]",
         className
       )}
     >
-      <span
-        aria-hidden
-        className="relative grid size-8 place-items-center rounded-md bg-foreground text-background transition-transform group-hover:scale-105"
-      >
-        <span className="text-[15px] font-bold leading-none">E</span>
-      </span>
-      <span className="text-foreground">
-        Ege<span className="text-muted-foreground">360</span>
-      </span>
+      <Image
+        src={SITE_LOGO}
+        alt=""
+        width={1080}
+        height={540}
+        className={
+          compact
+            ? "h-10 w-auto max-w-[13rem] sm:h-11 sm:max-w-[15rem]"
+            : "h-11 w-auto sm:h-12 md:h-14"
+        }
+        sizes={
+          compact
+            ? "(max-width: 640px) 180px, 200px"
+            : "(max-width: 640px) 200px, 240px, 280px"
+        }
+        priority={priority}
+        unoptimized
+      />
     </Link>
   );
 }

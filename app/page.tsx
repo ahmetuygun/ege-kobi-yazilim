@@ -1,21 +1,22 @@
-import { CallToAction } from "@/components/site/cta";
+import { ClosingCta } from "@/components/site/closing-cta";
+import { FeaturedProjects } from "@/components/site/featured-projects";
 import { Footer } from "@/components/site/footer";
 import { Hero } from "@/components/site/hero";
 import { Navbar } from "@/components/site/navbar";
-import { Principles } from "@/components/site/principles";
-import { Projects } from "@/components/site/projects";
-import { Services } from "@/components/site/services";
-import { Stories } from "@/components/site/stories";
+import { SectorSolutions } from "@/components/site/sector-solutions";
+import { SuccessStories } from "@/components/site/success-stories";
+import { ValuesRow } from "@/components/site/values-row";
+import { ORGANIZATION_LOGO_URL, SITE_ORIGIN } from "@/lib/site-assets";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ege KOBİ Yazılım",
-  alternateName: "Ege360",
-  url: "https://egekobiyazilim.com",
-  logo: "https://egekobiyazilim.com/images/hero-bg.jpg",
+  alternateName: ["EgeKOBİ", "Ege360"],
+  url: SITE_ORIGIN,
+  logo: ORGANIZATION_LOGO_URL,
   description:
-    "KOBİ’ler için 360° SaaS ürünleri (yapı360, tekstil360) geliştiren, İzmir merkezli yazılım stüdyosu.",
+    "Tekstil, yapı ve üretim işletmeleri için yazılım: sipariş, stok, şantiye ve raporlama. EgeKOBİ.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "İzmir",
@@ -27,7 +28,7 @@ const jsonLd = {
     email: "hello@egekobiyazilim.com",
     telephone: "+90-232-111-22-33",
     areaServed: "TR",
-    availableLanguage: ["Turkish", "English"],
+    availableLanguage: ["Turkish"],
   },
 };
 
@@ -41,13 +42,13 @@ export default function HomePage() {
 
       <Navbar />
 
-      <main id="main" className="flex flex-col">
+      <main id="main" className="flex flex-col bg-ege-surface-deep">
         <Hero />
-        <Services />
-        <Projects />
-        <Stories />
-        <Principles />
-        <CallToAction />
+        <SectorSolutions />
+        <FeaturedProjects />
+        <SuccessStories />
+        <ValuesRow />
+        <ClosingCta />
       </main>
 
       <Footer />

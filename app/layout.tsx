@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
+import { DEFAULT_OG_IMAGE, SITE_ORIGIN, THEME_COLOR_DEEP_SURFACE } from "@/lib/site-assets";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,24 +16,23 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://egekobiyazilim.com";
+const SITE_URL = SITE_ORIGIN;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Ege360 — KOBİ’ler için 360° Yazılım Çözümleri",
-    template: "%s · Ege360",
+    default: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
+    template: "%s · EgeKOBİ",
   },
   description:
-    "Ege KOBİ Yazılım, yapı360 ve tekstil360 gibi 360° SaaS ürünleri ile KOBİ’lerin operasyonlarını dijitalleştirir. Sistem mimarisi, yapay zeka entegrasyonu ve siber güvenlik uzmanlığı.",
+    "Tekstil, yapı ve üretim işletmeleri için sipariş takibi, stok, şantiye ve personel yönetimi. EgeKOBİ ile işlerinizi tek ekrandan kolayca yönetin.",
   keywords: [
     "KOBİ yazılım",
-    "yapı360",
-    "tekstil360",
-    "şantiye yönetimi",
-    "ERP",
-    "yapay zeka entegrasyonu",
-    "siber güvenlik",
+    "tekstil atölyesi yazılımı",
+    "inşaat şantiye takibi",
+    "sipariş takibi",
+    "stok kontrolü",
+    "üretim yönetimi",
     "İzmir yazılım",
     "Ege KOBİ Yazılım",
   ],
@@ -44,25 +44,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: SITE_URL,
-    siteName: "Ege360",
-    title: "Ege360 — KOBİ’ler için 360° Yazılım Çözümleri",
+    siteName: "EgeKOBİ",
+    title: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
     description:
-      "yapı360, tekstil360 ve özel SaaS çözümleri ile KOBİ’lerin dijital dönüşüm partneri.",
+      "Tekstil, yapı ve üretim işletmeleri için pratik yazılım çözümleri. Sipariş, stok ve saha takibi tek ekranda.",
     images: [
       {
-        url: "/images/hero-bg.jpg",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Ege360 — Endüstriyel kontrol paneli",
+        alt: "EgeKOBİ — örnek ekran",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ege360 — KOBİ’ler için 360° Yazılım Çözümleri",
+    title: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
     description:
-      "KOBİ’ler için yapı360 ve tekstil360 SaaS ürünleri ile uçtan uca dijital dönüşüm.",
-    images: ["/images/hero-bg.jpg"],
+      "KOBİ’ler için sipariş, stok, şantiye ve personel takibi. Kolay kullanım, mobil erişim.",
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
@@ -80,8 +80,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#2c3a4f" },
-    { media: "(prefers-color-scheme: dark)", color: "#2c3a4f" },
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR_DEEP_SURFACE },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR_DEEP_SURFACE },
   ],
   width: "device-width",
   initialScale: 1,
