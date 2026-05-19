@@ -38,7 +38,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-center px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-center px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8">
         <div className="relative flex max-w-2xl flex-col items-start text-left">
           <h1
             id="hero-title"
@@ -62,18 +62,10 @@ export function Hero() {
               size="xl"
               className="w-full font-medium sm:w-auto"
             >
-              <Link href="#iletisim">
-                Projeyi Keşfedin
+              <Link href="/iletisim">
+                Ücretsiz Fiyat Teklifi Alın
                 <ArrowRight className="size-4" />
               </Link>
-            </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="outline"
-              className="w-full border-white/20 bg-white/5 text-white backdrop-blur hover:bg-white/10 sm:w-auto"
-            >
-              <Link href="#projeler">Portföyümüz</Link>
             </Button>
           </div>
         </div>

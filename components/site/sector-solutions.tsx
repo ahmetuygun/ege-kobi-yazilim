@@ -1,34 +1,53 @@
 import { Building2, Factory, Shirt, Check } from "lucide-react";
+import Link from "next/link";
 
-const SECTORS = [
+const SOLUTIONS = [
   {
-    name: "Tekstil",
-    icon: Shirt,
-    blurb:
-      "Akıllı kumaş takibi ve sürdürülebilir üretim süreçleriyle atölyenizi güçlendirin.",
-    items: ["Fason ve sipariş takibi", "Kumaş / stok kontrolü", "Günlük üretim özeti"],
-  },
-  {
-    name: "İnşaat",
-    icon: Building2,
-    blurb:
-      "Modern mühendislik ve saha disipliniyle şantiye işlerinizi düzenli tutun.",
-    items: ["Şantiye ve iş programı", "Teklif ve malzeme", "Saha notları"],
-  },
-  {
-    name: "Sanayi",
+    name: "Üretim360",
     icon: Factory,
     blurb:
-      "Otomasyon ve hat verisiyle küçük-orta ölçekli üretimde verimi artırın.",
-    items: ["Üretim planı", "Makine / vardiya takibi", "Depo hareketleri"],
+      "Planlama, OEE ve izlenebilirlikten enerji ve bakıma kadar fabrika operasyonlarını tek platformda toplayın.",
+    items: [
+      "Üretim planı ve hat verimliliği",
+      "Kalite ve parti izlenebilirliği",
+      "Enerji, bakım ve sürdürülebilirlik",
+    ],
+    detailHref: "/uretim" as const,
+    detailLabel: "Üretim360’u inceleyin" as const,
+  },
+  {
+    name: "Tekstil360",
+    icon: Shirt,
+    blurb:
+      "Tekstil üretiminde sipariş, fason, stok ve günlük özetleri tek ekrandan yönetin.",
+    items: [
+      "Fason ve sipariş takibi",
+      "Kumaş / stok kontrolü",
+      "Günlük üretim özeti",
+    ],
+    detailHref: "/tekstil" as const,
+    detailLabel: "Tekstil360’u inceleyin" as const,
+  },
+  {
+    name: "Yapı360",
+    icon: Building2,
+    blurb:
+      "Şantiye operasyonlarından maliyet ve sözleşmeye, İSG ve uyuma kadar yapı projelerinizi disipline edin.",
+    items: [
+      "İş programı ve saha koordinasyonu",
+      "Teklif, hakediş ve tedarik",
+      "İSG ve denetime hazır kayıt",
+    ],
+    detailHref: "/yapi" as const,
+    detailLabel: "Yapı360’u inceleyin" as const,
   },
 ] as const;
 
 export function SectorSolutions() {
   return (
     <section
-      id="uzmanlik"
-      aria-labelledby="uzmanlik-baslik"
+      id="cozumler"
+      aria-labelledby="cozumler-baslik"
       className="relative border-t border-white/10 bg-ege-surface-mid py-20 sm:py-28"
     >
       <div
@@ -38,19 +57,25 @@ export function SectorSolutions() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2
-            id="uzmanlik-baslik"
+            id="cozumler-baslik"
             className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
           >
-            Uzmanlık alanlarımız
+            Sektöre Özel Dijital Çözümler
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-400">
-            Üç ana sektörde derinleşiyoruz. Her kartta günlük iş dilinde özet
-            maddeler bulabilirsiniz.
+            Üretim, tekstil ve yapı için geliştirdiğimiz üç ürün hattı. Her kartta
+            o çözümün odak başlıklarını özetledik.
           </p>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {SECTORS.map(({ name, icon: Icon, blurb, items }) => (
+          {SOLUTIONS.map((sector) => {
+            const { name, icon: Icon, blurb, items } = sector;
+            const detailHref =
+              "detailHref" in sector ? sector.detailHref : undefined;
+            const detailLabel =
+              "detailLabel" in sector ? sector.detailLabel : "Detayı inceleyin";
+            return (
             <article
               key={name}
               className="card-dark flex flex-col rounded-2xl p-8 transition-transform duration-200 hover:-translate-y-0.5 hover:border-ege-sea/25"
@@ -75,8 +100,17 @@ export function SectorSolutions() {
                   </li>
                 ))}
               </ul>
+              {detailHref ? (
+                <Link
+                  href={detailHref}
+                  className="mt-6 text-sm font-semibold text-ege-sea-light underline-offset-4 hover:text-ege-sea-bright hover:underline"
+                >
+                  {detailLabel}
+                </Link>
+              ) : null}
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

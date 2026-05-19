@@ -3,6 +3,7 @@ import { Mail } from "lucide-react";
 
 import { Logo } from "@/components/site/logo";
 import { Separator } from "@/components/ui/separator";
+import { CONTACT_EMAIL } from "@/lib/site-contact";
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -12,31 +13,23 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const LINK_GROUPS = [
-  {
-    title: "Kurumsal",
-    links: [
-      { label: "Uzmanlık", href: "#uzmanlik" },
-      { label: "Projeler", href: "#projeler" },
-      { label: "Başarı hikayeleri", href: "#hikayeler" },
-      { label: "İletişim", href: "#iletisim" },
-    ],
-  },
-  {
-    title: "Bize ulaşın",
-    links: [
-      { label: "E-posta", href: "mailto:hello@egekobiyazilim.com" },
-      { label: "Telefon", href: "tel:+902321112233" },
-    ],
-  },
-  {
-    title: "Yasal",
-    links: [
-      { label: "Gizlilik politikası", href: "#" },
-      { label: "Kullanım şartları", href: "#" },
-    ],
-  },
+const KURUMSAL_LINKS = [
+  { label: "Tekstil360", href: "/tekstil" },
+  { label: "Yapı360", href: "/yapi" },
+  { label: "Üretim360", href: "/uretim" },
+  { label: "Çözümler", href: "/#cozumler" },
+  { label: "Dijital dönüşüm", href: "/dijital-donusum" },
+  { label: "Projeler", href: "/#projeler" },
+  { label: "Başarı hikayeleri", href: "/#hikayeler" },
+  { label: "İletişim", href: "/iletisim" },
 ] as const;
+
+const YASAL_LINKS = [
+  { label: "Gizlilik politikası", href: "#" },
+  { label: "Kullanım şartları", href: "#" },
+] as const;
+
+const BIZE_ULAS_LINKS = [{ label: "İletişim ve adres", href: "/iletisim" }] as const;
 
 export function Footer() {
   return (
@@ -60,25 +53,59 @@ export function Footer() {
             </Link>
           </div>
 
-          {LINK_GROUPS.map((group) => (
-            <nav key={group.title} aria-label={group.title}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                {group.title}
-              </h3>
-              <ul className="mt-4 space-y-2.5">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-400 transition-colors hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <nav aria-label="Kurumsal">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Kurumsal
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {KURUMSAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Bize ulaşın">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Bize ulaşın
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {BIZE_ULAS_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Yasal">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Yasal
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {YASAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         <Separator className="my-10 bg-white/10" />
@@ -87,7 +114,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Ege KOBİ Yazılım. Tüm hakları saklıdır.</p>
           <p className="inline-flex items-center gap-1.5">
             <Mail className="size-3.5 shrink-0" aria-hidden />
-            hello@egekobiyazilim.com
+            <span className="text-slate-400">{CONTACT_EMAIL}</span>
           </p>
         </div>
       </div>

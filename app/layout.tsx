@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { DEFAULT_OG_IMAGE, SITE_ORIGIN, THEME_COLOR_DEEP_SURFACE } from "@/lib/site-assets";
+import { LOCALE_TR, OG_IMAGE_PRESET, SITE_BRAND, SITE_LEGAL_NAME } from "@/lib/seo-metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,50 +19,68 @@ const geistMono = Geist_Mono({
 
 const SITE_URL = SITE_ORIGIN;
 
+const defaultDescription =
+  "EgeKOBİ: Afyonkarahisar, Aydın, Denizli, İzmir, Kütahya, Manisa, Muğla ve Uşak illeri ile tüm ilçelerinde KOBİ ve kurumlara tekstil, inşaat, üretim yazılımı (Tekstil360, Yapı360, Üretim360), CRM, ERP, mobil ve web ile dijital dönüşüm. Pamukkale Teknokent, Denizli.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_BRAND,
   title: {
-    default: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
-    template: "%s · EgeKOBİ",
+    default: `${SITE_BRAND} | KOBİ yazılım ve dijital dönüşüm | Denizli`,
+    template: `%s · ${SITE_BRAND}`,
   },
-  description:
-    "Tekstil, yapı ve üretim işletmeleri için sipariş takibi, stok, şantiye ve personel yönetimi. EgeKOBİ ile işlerinizi tek ekrandan kolayca yönetin.",
+  description: defaultDescription,
   keywords: [
-    "KOBİ yazılım",
-    "tekstil atölyesi yazılımı",
-    "inşaat şantiye takibi",
-    "sipariş takibi",
-    "stok kontrolü",
-    "üretim yönetimi",
-    "İzmir yazılım",
+    "EgeKOBİ",
     "Ege KOBİ Yazılım",
+    "KOBİ yazılım",
+    "tekstil yazılımı",
+    "Tekstil360",
+    "inşaat yazılımı",
+    "şantiye takibi",
+    "Yapı360",
+    "üretim yazılımı",
+    "Üretim360",
+    "OEE",
+    "CRM yazılımı",
+    "ERP",
+    "mobil uygulama geliştirme",
+    "web platform",
+    "yapay zekâ",
+    "veri analitiği",
+    "bulut entegrasyonu",
+    "Pamukkale Teknokent",
+    "Denizli yazılım şirketi",
   ],
-  authors: [{ name: "Ege KOBİ Yazılım" }],
-  creator: "Ege KOBİ Yazılım",
-  publisher: "Ege KOBİ Yazılım",
+  authors: [{ name: SITE_LEGAL_NAME, url: SITE_ORIGIN }],
+  creator: SITE_LEGAL_NAME,
+  publisher: SITE_LEGAL_NAME,
   alternates: { canonical: "/" },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  referrer: "origin-when-cross-origin",
   openGraph: {
     type: "website",
-    locale: "tr_TR",
+    locale: LOCALE_TR,
     url: SITE_URL,
-    siteName: "EgeKOBİ",
-    title: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
-    description:
-      "Tekstil, yapı ve üretim işletmeleri için pratik yazılım çözümleri. Sipariş, stok ve saha takibi tek ekranda.",
+    siteName: SITE_BRAND,
+    title: `${SITE_BRAND} | KOBİ yazılım ve dijital dönüşüm`,
+    description: defaultDescription,
     images: [
       {
         url: DEFAULT_OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: "EgeKOBİ — örnek ekran",
+        ...OG_IMAGE_PRESET,
+        alt: `${SITE_BRAND} — dijital dönüşüm ve sektörel yazılım çözümleri`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EgeKOBİ — Tekstil, yapı ve üretim için pratik yazılım",
-    description:
-      "KOBİ’ler için sipariş, stok, şantiye ve personel takibi. Kolay kullanım, mobil erişim.",
+    title: `${SITE_BRAND} | KOBİ yazılım ve dijital dönüşüm`,
+    description: defaultDescription,
     images: [DEFAULT_OG_IMAGE],
   },
   robots: {
