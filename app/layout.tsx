@@ -24,6 +24,11 @@ const defaultDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  /** Eski `favicon.ico` kaldırıldı; sekme ikonu `app/icon.png` ile aynı marka. */
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
   applicationName: SITE_BRAND,
   title: {
     default: `${SITE_BRAND} | KOBİ yazılım ve dijital dönüşüm | Denizli`,
