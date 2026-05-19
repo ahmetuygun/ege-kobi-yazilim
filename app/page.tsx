@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { ClosingCta } from "@/components/site/closing-cta";
 import { DigitalTransformationSolutions } from "@/components/site/digital-transformation-solutions";
-import { FeaturedProjects } from "@/components/site/featured-projects";
+import { HowWeWork } from "@/components/site/how-we-work";
 import { Footer } from "@/components/site/footer";
 import { Hero } from "@/components/site/hero";
 import { Navbar } from "@/components/site/navbar";
@@ -118,7 +118,7 @@ export default function HomePage() {
         <Hero />
         <SectorSolutions />
         <DigitalTransformationSolutions />
-        <FeaturedProjects />
+        <HowWeWork />
         <SuccessStories />
         <ValuesRow />
         <ClosingCta />

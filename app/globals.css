@@ -147,4 +147,49 @@
       inset 0 1px 0 oklch(1 0 0 / 0.06),
       0 0 80px -20px color-mix(in oklab, var(--ege-sea) 25%, transparent);
   }
+
+  /* “Nasıl çalışıyoruz?” zaman çizgisi bağlayıcıları */
+  @keyframes how-we-work-line-h {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  @keyframes how-we-work-line-v {
+    0% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 50% 200%;
+    }
+  }
+
+  .how-we-work-line-h {
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--ege-sea) 8%, transparent),
+      color-mix(in oklab, var(--ege-sea) 55%, transparent),
+      color-mix(in oklab, var(--ege-sea-light) 40%, transparent),
+      color-mix(in oklab, var(--ege-sea) 55%, transparent),
+      color-mix(in oklab, var(--ege-sea) 8%, transparent)
+    );
+    background-size: 200% 100%;
+    animation: how-we-work-line-h 5s ease-in-out infinite;
+  }
+
+  .how-we-work-line-v {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--ege-sea) 8%, transparent),
+      color-mix(in oklab, var(--ege-sea) 50%, transparent),
+      color-mix(in oklab, var(--ege-sea-light) 38%, transparent),
+      color-mix(in oklab, var(--ege-sea) 50%, transparent),
+      color-mix(in oklab, var(--ege-sea) 8%, transparent)
+    );
+    background-size: 100% 200%;
+    animation: how-we-work-line-v 5s ease-in-out infinite;
+  }
 }
