@@ -9,7 +9,7 @@ const PROJECTS = [
     tag: "İnşaat",
     title: "Akıllı Şantiye Merkezi",
     subtitle: "Tek ekranda iş programı ve malzeme akışı",
-    href: "/iletisim",
+    href: "/yapi",
     image: HERO_BACKGROUND_IMAGE,
     objectPosition: "object-[60%_center]",
   },
@@ -17,7 +17,7 @@ const PROJECTS = [
     tag: "Tekstil",
     title: "Entegre Üretim Paneli",
     subtitle: "Sipariş, fason ve stok bir arada",
-    href: "/iletisim",
+    href: "/tekstil",
     image: HERO_BACKGROUND_IMAGE,
     objectPosition: "object-[35%_center]",
   },
@@ -45,10 +45,10 @@ export function FeaturedProjects() {
             </p>
           </div>
           <Link
-            href="/iletisim"
+            href="/#cta-birlikte"
             className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wider text-ege-sea-light hover:text-ege-sea-bright"
           >
-            Tüm projeler
+            Proje için görüşelim
             <ArrowUpRight className="size-4" />
           </Link>
         </div>

@@ -29,13 +29,11 @@ const YASAL_LINKS = [
   { label: "Kullanım şartları", href: "#" },
 ] as const;
 
-const BIZE_ULAS_LINKS = [{ label: "İletişim ve adres", href: "/iletisim" }] as const;
-
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ege-surface-footer">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Logo variant="dark" compact />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
@@ -59,24 +57,6 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {KURUMSAL_LINKS.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Bize ulaşın">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Bize ulaşın
-            </h3>
-            <ul className="mt-4 space-y-2.5">
-              {BIZE_ULAS_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

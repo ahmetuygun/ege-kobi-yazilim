@@ -37,7 +37,10 @@ export default function DijitalDonusumRoutePage() {
     <>
       <Navbar />
 
-      <main id="main" className="flex min-h-svh flex-col bg-ege-surface-deep">
+      <main
+        id="main"
+        className="flex min-h-svh min-w-0 flex-col overflow-x-hidden bg-ege-surface-deep"
+      >
         <DijitalDonusumPageContent />
         <ClosingCta />
       </main>

@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/site/logo";
 
 const NAV_LINKS = [
@@ -39,15 +38,6 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 lg:block">
-          <Button asChild size="sm" className="gap-1.5 px-4 font-medium">
-            <Link href="/iletisim">
-              BİZE ULAŞIN
-              <ArrowRight className="size-3.5 shrink-0" />
-            </Link>
-          </Button>
-        </div>
-
         <button
           type="button"
           aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
@@ -72,12 +62,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild size="default" className="mt-3 w-full font-medium">
-              <Link href="/iletisim" onClick={() => setOpen(false)}>
-                BİZE ULAŞIN
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       ) : null}

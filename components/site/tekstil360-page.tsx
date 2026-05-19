@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -241,18 +241,12 @@ export function Tekstil360PageContent() {
             Tekstil360, modern tekstil üretiminin ihtiyaç duyduğu hız, şeffaflık
             ve sürdürülebilirlik altyapısını geleceğe hazır hale getirir.
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="xl" className="w-full font-medium sm:w-auto">
-              <Link href="/iletisim">
-                İletişime geçin
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+          <div className="mt-10">
             <Button
               asChild
               size="xl"
               variant="outline"
-              className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10"
+              className="w-full rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
             >
               <Link href="/">Ana sayfaya dön</Link>
             </Button>
