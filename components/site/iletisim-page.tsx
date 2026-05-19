@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ILETISIM_OFFICE_IMAGE } from "@/lib/site-assets";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE_DISPLAY,
@@ -42,26 +44,45 @@ export function IletisimPageContent() {
 
   return (
     <>
-      <section className="border-b border-white/10 bg-ege-surface-mid">
-        <div className="mx-auto max-w-3xl px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
+      <section className="relative isolate min-h-[24rem] overflow-hidden border-b border-white/10 sm:min-h-[28rem]">
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src={ILETISIM_OFFICE_IMAGE}
+            alt="Pamukkale Teknokent ofis — EgeKOBİ çalışma alanı"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/45"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-slate-950/50"
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-3xl px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
           <Button
             asChild
             variant="outline"
             size="sm"
-            className="mb-8 mt-2 border-white/20 bg-white/5 text-white hover:bg-white/10 sm:mt-4"
+            className="mb-8 mt-2 border-white/20 bg-black/25 text-white backdrop-blur hover:bg-white/10 sm:mt-4"
           >
             <Link href="/">
               <ArrowLeft className="size-4" />
               Ana sayfa
             </Link>
           </Button>
-          <p className="text-sm font-semibold uppercase tracking-wider text-ege-sea-light">
+          <p className="text-sm font-semibold uppercase tracking-wider text-ege-sea-light [text-shadow:0_1px_12px_rgb(0_0_0_/_0.45)]">
             Bize ulaşın
           </p>
-          <h1 className="mt-2 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h1 className="mt-2 text-balance text-3xl font-bold tracking-tight text-white [text-shadow:0_2px_24px_rgb(0_0_0_/_0.5)] sm:text-4xl md:text-5xl">
             İletişim
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-slate-400">
+          <p className="mt-12 max-w-xl text-lg leading-relaxed text-white/90 [text-shadow:0_1px_14px_rgb(0_0_0_/_0.45)] sm:mt-4">
             Projeleriniz, entegrasyon ihtiyaçlarınız veya demo talepleriniz için
             aşağıdaki ileti bilgilerini kullanarak bize ulaşabilirsiniz.
           </p>

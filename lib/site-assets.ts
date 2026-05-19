@@ -31,6 +31,11 @@ export const URETIM_IMAGE_1 = `/images/uretim-1.jpg?v=${URETIM_IMAGE_VERSION}`;
 export const URETIM_IMAGE_2 = `/images/uretim-2.jpg?v=${URETIM_IMAGE_VERSION}`;
 export const URETIM_IMAGE_3 = `/images/uretim-3.avif?v=${URETIM_IMAGE_VERSION}`;
 
+/** İletişim sayfası ofis fotoğrafı — dosya değişince `ILETISIM_OFFICE_IMAGE_VERSION` artırın. */
+export const ILETISIM_OFFICE_IMAGE_VERSION = "1";
+export const ILETISIM_OFFICE_IMAGE =
+  `/images/ofis.jpg?v=${ILETISIM_OFFICE_IMAGE_VERSION}` as const;
+
 /** OG / Twitter paylaşım görseli (şimdilik hero görseli). */
 export const DEFAULT_OG_IMAGE = HERO_BACKGROUND_IMAGE;
 

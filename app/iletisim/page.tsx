@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/footer";
 import { IletisimPageContent } from "@/components/site/iletisim-page";
 import { Navbar } from "@/components/site/navbar";
 import { buildPageMetadata } from "@/lib/seo-metadata";
-import { DEFAULT_OG_IMAGE } from "@/lib/site-assets";
+import { ILETISIM_OFFICE_IMAGE } from "@/lib/site-assets";
 
 const description =
   "EgeKOBİ iletişim: Pamukkale Üniversitesi Teknokent, Denizli. Teklif, demo ve iş birliği için e-posta ve telefon bilgileri bu sayfada. Ege Bölgesi illeri ve ilçelerinden de ulaşabilirsiniz.";
@@ -22,8 +22,8 @@ export const metadata: Metadata = buildPageMetadata({
     "EgeKOBİ adres",
   ],
   ogImage: {
-    url: DEFAULT_OG_IMAGE,
-    alt: "EgeKOBİ — iletişim",
+    url: ILETISIM_OFFICE_IMAGE,
+    alt: "EgeKOBİ — Pamukkale Teknokent ofis",
   },
   ogType: "website",
 });
