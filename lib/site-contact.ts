@@ -12,7 +12,7 @@ function readEnv(name: string, fallback: string): string {
 /** Görünen e-posta ve mailto hedefi */
 export const CONTACT_EMAIL = readEnv(
   "NEXT_PUBLIC_CONTACT_EMAIL",
-  "iletisim@example.com",
+  "iletisim@egekobiyazilim.com",
 );
 
 /** Telefon, insan okunaklı metin */
