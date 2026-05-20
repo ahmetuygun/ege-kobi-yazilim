@@ -7,6 +7,20 @@ export const SITE_LOGO_VERSION = "2";
 
 export const SITE_LOGO = `/images/logo.png?v=${SITE_LOGO_VERSION}`;
 
+/**
+ * Sekme ikonu + Google arama sonuçları favicon önbelleği.
+ * `public/images/site-favicon.png` değişince sürümü artırın (URL değişir, yeniden taranır).
+ * Not: `app/icon.png` kullanılmıyor — Next.js sorgusuz `/icon.png` üretip Google önbelleğini kilitleyebiliyor.
+ */
+export const SITE_FAVICON_VERSION = "2";
+export const SITE_FAVICON_ICON =
+  `/images/site-favicon.png?v=${SITE_FAVICON_VERSION}` as const;
+export const SITE_FAVICON_APPLE =
+  `/images/site-apple-touch-icon.png?v=${SITE_FAVICON_VERSION}` as const;
+
+/** `next.config` içinde `/favicon.ico` → PNG yönlendirmesi için (Google hâlâ bu yolu ister). */
+export const SITE_FAVICON_REDIRECT_DESTINATION = SITE_FAVICON_ICON;
+
 /** `app/globals.css` içindeki `--ege-surface-deep` ile aynı (viewport `themeColor` vb.). */
 export const THEME_COLOR_DEEP_SURFACE = "#050a14" as const;
 

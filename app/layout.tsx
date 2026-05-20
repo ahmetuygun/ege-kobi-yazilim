@@ -2,7 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
-import { DEFAULT_OG_IMAGE, SITE_ORIGIN, THEME_COLOR_DEEP_SURFACE } from "@/lib/site-assets";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_FAVICON_APPLE,
+  SITE_FAVICON_ICON,
+  SITE_ORIGIN,
+  THEME_COLOR_DEEP_SURFACE,
+} from "@/lib/site-assets";
 import { LOCALE_TR, OG_IMAGE_PRESET, SITE_BRAND, SITE_LEGAL_NAME } from "@/lib/seo-metadata";
 
 const geistSans = Geist({
@@ -24,10 +30,10 @@ const defaultDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  /** Eski `favicon.ico` kaldırıldı; sekme ikonu `app/icon.png` ile aynı marka. */
+  /** Google ve tarayıcılar faviconu uzun süre önbelleğe alır; `SITE_FAVICON_VERSION` ile URL yenilenir. */
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+    icon: [{ url: SITE_FAVICON_ICON, type: "image/png", sizes: "any" }],
+    apple: [{ url: SITE_FAVICON_APPLE, type: "image/png" }],
   },
   applicationName: SITE_BRAND,
   title: {
