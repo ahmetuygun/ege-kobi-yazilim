@@ -33,7 +33,7 @@ export default function IletisimPage() {
     <>
       <Navbar />
 
-      <main id="main" className="flex min-h-svh flex-col bg-ege-surface-deep">
+      <main id="main" className="flex min-h-svh flex-col bg-background">
         <IletisimPageContent />
       </main>
 

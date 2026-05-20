@@ -39,7 +39,7 @@ export default function DijitalDonusumRoutePage() {
 
       <main
         id="main"
-        className="flex min-h-svh min-w-0 flex-col overflow-x-hidden bg-ege-surface-deep"
+        className="flex min-h-svh min-w-0 flex-col overflow-x-hidden bg-background"
       >
         <DijitalDonusumPageContent />
         <ClosingCta />

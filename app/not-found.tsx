@@ -18,16 +18,16 @@ export default function NotFound() {
 
       <main
         id="main"
-        className="flex min-h-svh flex-col bg-ege-surface-deep"
+        className="flex min-h-svh flex-col bg-background"
       >
         <div className="flex flex-1 flex-col items-center justify-center px-4 py-24 text-center sm:py-32">
-          <p className="text-sm font-medium uppercase tracking-wider text-slate-500">
+          <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
             404
           </p>
-          <h1 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h1 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Sayfa bulunamadı
           </h1>
-          <p className="mt-4 max-w-md text-slate-400">
+          <p className="mt-4 max-w-md text-muted-foreground">
             Bağlantıyı kontrol edin veya ana sayfadan devam edin.
           </p>
           <Link

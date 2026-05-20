@@ -8,6 +8,7 @@ import {
   SITE_FAVICON_ICON,
   SITE_ORIGIN,
   THEME_COLOR_DEEP_SURFACE,
+  THEME_COLOR_LIGHT_SURFACE,
 } from "@/lib/site-assets";
 import { LOCALE_TR, OG_IMAGE_PRESET, SITE_BRAND, SITE_LEGAL_NAME } from "@/lib/seo-metadata";
 
@@ -110,7 +111,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: THEME_COLOR_DEEP_SURFACE },
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR_LIGHT_SURFACE },
     { media: "(prefers-color-scheme: dark)", color: THEME_COLOR_DEEP_SURFACE },
   ],
   width: "device-width",
@@ -122,6 +123,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  /* Varsayılan koyu; ThemeToggle ilk yüklemede localStorage ile üzerine yazar. */
   return (
     <html
       lang="tr"

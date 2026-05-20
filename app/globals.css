@@ -4,20 +4,77 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Renk yönetimi
- * - Ege mavisi: --ege-sea* (deepskyblue tabanlı vurgu / birincil mavi)
- * - Koyu yüzeyler: --ege-surface* (arka plan lacivertleri)
- * - Viewport themeColor: lib/site-assets.ts THEME_COLOR_DEEP_SURFACE ile --ege-surface-deep aynı tutulmalı.
+ * Merkezi tema (tek kaynak)
+ * - `html` … Açık tema (nötr yüzey + okunabilir mavi vurgular).
+ * - `html.dark` … Koyu tema; marka `--ege-sea*` burada sabitlenir (açık ince ayarlarından bağımsız).
+ * Tema: `ThemeToggle` / `localStorage` veya `layout` içindeki `dark` sınıfı.
  */
-:root {
-  /* Ege mavisi — ana renk: deepskyblue; türevler aynı aileden */
+html {
+  /* --- Açık tema marka (beyaz üzeri okunabilirlik; link / ikon tonları) --- */
+  --ege-sea: deepskyblue;
+  --ege-sea-deep: color-mix(in oklch, deepskyblue 52%, black);
+  --ege-sea-light: oklch(48% 0.13 237);
+  --ege-sea-bright: oklch(42% 0.12 238);
+  --ege-sea-soft: color-mix(in oklab, deepskyblue 32%, oklch(96% 0.02 245));
+
+  /* --- Açık tema yüzey: nötr önce, bölümler arası hafif ayrım --- */
+  --ege-surface-deep: #fafbfc;
+  --ege-surface-mid: #f4f6f9;
+  --ege-surface-footer: #eef1f6;
+
+  --background: oklch(99.1% 0.004 250);
+  --foreground: oklch(21% 0.038 264);
+
+  --card: oklch(100% 0.002 250);
+  --card-foreground: oklch(21% 0.038 264);
+
+  --popover: oklch(100% 0.002 250);
+  --popover-foreground: oklch(21% 0.038 264);
+
+  --primary: var(--ege-sea);
+  --primary-foreground: oklch(99.2% 0.01 250);
+
+  --secondary: oklch(97.2% 0.008 248);
+  --secondary-foreground: oklch(26% 0.034 264);
+
+  --muted: oklch(96% 0.01 248);
+  --muted-foreground: oklch(40% 0.028 252);
+
+  --accent: color-mix(in oklab, var(--ege-sea) 9%, oklch(98% 0.01 248));
+  --accent-foreground: oklch(24% 0.04 264);
+
+  --destructive: oklch(58% 0.2 27);
+  --destructive-foreground: oklch(99% 0.005 252);
+
+  --border: oklch(90% 0.014 252 / 0.92);
+  --input: oklch(91% 0.014 252 / 0.95);
+  --ring: oklch(52% 0.13 237);
+
+  --radius: 0.875rem;
+
+  --brand-cyan: var(--ege-sea);
+  --brand-cyan-strong: var(--ege-sea-deep);
+  --brand-bg: color-mix(in oklab, var(--ege-sea) 5.5%, oklch(98.5% 0.008 248));
+
+  /* Bileşen yardımcıları (açık) */
+  --header-bg: color-mix(in oklab, oklch(100% 0 0) 92%, transparent);
+  --header-border: oklch(90% 0.012 252 / 0.88);
+  --surface-card-bg: oklch(100% 0.002 250);
+  --surface-card-border: oklch(89% 0.016 252 / 0.95);
+  --grid-line: oklch(55% 0.02 252 / 0.07);
+  --cta-from: oklch(99% 0.012 245);
+  --cta-to: color-mix(in oklab, oklch(97% 0.02 245) 88%, var(--ege-sea) 8%);
+  --cta-border: oklch(88% 0.02 252 / 0.95);
+}
+
+html.dark {
+  /* Koyu temada marka tonları (açık temadaki ince ayarlardan etkilenmesin) */
   --ege-sea: deepskyblue;
   --ege-sea-deep: color-mix(in oklch, deepskyblue 42%, black);
-  --ege-sea-light: color-mix(in oklch, deepskyblue 52%, white);
-  --ege-sea-bright: color-mix(in oklch, deepskyblue 32%, white);
-  --ege-sea-soft: color-mix(in oklch, deepskyblue 62%, white);
+  --ege-sea-light: color-mix(in oklch, deepskyblue 48%, white);
+  --ege-sea-bright: color-mix(in oklch, deepskyblue 28%, white);
+  --ege-sea-soft: color-mix(in oklch, deepskyblue 55%, white);
 
-  /* --- Koyu yüzey (deniz tonuna yakın lacivert) --- */
   --ege-surface-deep: #050a14;
   --ege-surface-mid: #060d18;
   --ege-surface-footer: #030712;
@@ -50,12 +107,18 @@
   --input: oklch(34% 0.03 252 / 0.7);
   --ring: var(--ege-sea-light);
 
-  --radius: 0.875rem;
-
-  /* Utility içi color-mix için (ege-sea ile aynı) */
   --brand-cyan: var(--ege-sea);
   --brand-cyan-strong: var(--ege-sea-deep);
   --brand-bg: oklch(14% 0.04 252);
+
+  --header-bg: color-mix(in oklab, oklch(14% 0.03 252) 94%, transparent);
+  --header-border: oklch(1 0 0 / 0.1);
+  --surface-card-bg: color-mix(in oklab, var(--card) 92%, transparent);
+  --surface-card-border: oklch(1 0 0 / 0.08);
+  --grid-line: oklch(1 0 0 / 0.04);
+  --cta-from: oklch(22% 0.04 252 / 0.92);
+  --cta-to: oklch(16% 0.04 252 / 0.95);
+  --cta-border: color-mix(in oklab, var(--ege-sea) 22%, transparent);
 }
 
 @theme inline {
@@ -92,6 +155,9 @@
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-cyan-strong: var(--brand-cyan-strong);
 
+  --color-header: var(--header-bg);
+  --color-header-border: var(--header-border);
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -123,10 +189,10 @@
 }
 
 @layer utilities {
-  .bg-grid-dark {
+  .bg-grid-site {
     background-image:
-      linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 
@@ -136,19 +202,25 @@
       0 12px 40px -8px color-mix(in oklab, var(--ege-sea) 45%, transparent);
   }
 
-  .card-dark {
-    background: color-mix(in oklab, var(--card) 92%, transparent);
-    border: 1px solid oklch(1 0 0 / 0.08);
+  /** Cam / kart paneli — tema değişkenlerinden */
+  .surface-card {
+    background: var(--surface-card-bg);
+    border: 1px solid var(--surface-card-border);
     backdrop-filter: blur(10px);
+  }
+
+  /** Kapanış CTA kartı */
+  .surface-cta-panel {
+    background: linear-gradient(to bottom, var(--cta-from), var(--cta-to));
+    border: 1px solid var(--cta-border);
   }
 
   .section-glow {
     box-shadow:
-      inset 0 1px 0 oklch(1 0 0 / 0.06),
+      inset 0 1px 0 color-mix(in oklab, var(--foreground) 10%, transparent),
       0 0 80px -20px color-mix(in oklab, var(--ege-sea) 25%, transparent);
   }
 
-  /* “Nasıl çalışıyoruz?” zaman çizgisi bağlayıcıları */
   @keyframes how-we-work-line-h {
     0% {
       background-position: 0% 50%;

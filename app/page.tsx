@@ -114,7 +114,7 @@ export default function HomePage() {
 
       <Navbar />
 
-      <main id="main" className="flex flex-col bg-ege-surface-deep">
+      <main id="main" className="flex flex-col bg-background">
         <Hero />
         <SectorSolutions />
         <DigitalTransformationSolutions />

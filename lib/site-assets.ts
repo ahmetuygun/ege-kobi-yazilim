@@ -1,11 +1,16 @@
 /**
- * Marka logosu — yalnızca `Logo` ve şema `Organization.logo`.
- * `public/images/logo.png` dosyasını güncellediğinizde `SITE_LOGO_VERSION` değerini artırın
- * (Next Image önbelleği ve tarayıcı eski görseli tutmasın diye).
+ * Koyu tema / koyu yüzey logosu — `Logo variant="dark"` ve şema `Organization.logo`.
+ * `public/images/logo.png` güncellenince sürümü artırın.
  */
 export const SITE_LOGO_VERSION = "2";
 
 export const SITE_LOGO = `/images/logo.png?v=${SITE_LOGO_VERSION}`;
+
+/**
+ * Açık tema logosu (açık zemin, tam renk). `public/images/logo-light.png` güncellenince artırın.
+ */
+export const SITE_LOGO_LIGHT_VERSION = "1";
+export const SITE_LOGO_LIGHT = `/images/logo-light.png?v=${SITE_LOGO_LIGHT_VERSION}`;
 
 /**
  * Sekme ikonu + Google arama sonuçları favicon önbelleği.
@@ -21,8 +26,11 @@ export const SITE_FAVICON_APPLE =
 /** `next.config` içinde `/favicon.ico` → PNG yönlendirmesi için (Google hâlâ bu yolu ister). */
 export const SITE_FAVICON_REDIRECT_DESTINATION = SITE_FAVICON_ICON;
 
-/** `app/globals.css` içindeki `--ege-surface-deep` ile aynı (viewport `themeColor` vb.). */
+/** Koyu tema — `html.dark` içindeki `--ege-surface-deep` ile uyumlu (viewport `themeColor`). */
 export const THEME_COLOR_DEEP_SURFACE = "#050a14" as const;
+
+/** Açık tema — `app/globals.css` içindeki `html` `--background` / `--ege-surface-deep` ile uyumlu. */
+export const THEME_COLOR_LIGHT_SURFACE = "#fafbfc" as const;
 
 /** Ana sayfa hero tam ekran arka planı (dekoratif). */
 export const HERO_BACKGROUND_IMAGE = "/images/hero-bg.jpg" as const;

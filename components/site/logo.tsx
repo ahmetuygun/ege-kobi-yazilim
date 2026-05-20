@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { SITE_LOGO } from "@/lib/site-assets";
+import { SITE_LOGO, SITE_LOGO_LIGHT } from "@/lib/site-assets";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -23,13 +23,11 @@ export function Logo({
       aria-label="EgeKOBİ ana sayfa"
       className={cn(
         "inline-flex shrink-0 items-center transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-        variant === "light" &&
-          "drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.15)]",
         className
       )}
     >
       <Image
-        src={SITE_LOGO}
+        src={variant === "light" ? SITE_LOGO_LIGHT : SITE_LOGO}
         alt=""
         width={1080}
         height={540}

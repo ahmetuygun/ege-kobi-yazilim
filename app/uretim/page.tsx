@@ -37,7 +37,7 @@ export default function UretimPage() {
     <>
       <Navbar />
 
-      <main id="main" className="flex min-h-svh flex-col bg-ege-surface-deep">
+      <main id="main" className="flex min-h-svh flex-col bg-background">
         <Uretim360PageContent />
         <ClosingCta />
       </main>

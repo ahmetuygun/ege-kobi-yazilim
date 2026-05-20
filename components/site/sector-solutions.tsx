@@ -48,7 +48,7 @@ export function SectorSolutions() {
     <section
       id="cozumler"
       aria-labelledby="cozumler-baslik"
-      className="relative border-t border-white/10 bg-ege-surface-mid py-20 sm:py-28"
+      className="relative border-t border-border bg-secondary py-20 sm:py-28"
     >
       <div
         aria-hidden
@@ -58,11 +58,11 @@ export function SectorSolutions() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="cozumler-baslik"
-            className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl"
           >
             Sektöre Özel Dijital Çözümler
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-400">
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Üretim, tekstil ve yapı için geliştirdiğimiz üç ürün hattı. Her kartta
             o çözümün odak başlıklarını özetledik.
           </p>
@@ -78,20 +78,20 @@ export function SectorSolutions() {
             return (
             <article
               key={name}
-              className="card-dark flex flex-col rounded-2xl p-8 transition-transform duration-200 hover:-translate-y-0.5 hover:border-ege-sea/25"
+              className="surface-card flex flex-col rounded-2xl p-8 transition-transform duration-200 hover:-translate-y-0.5 hover:border-ege-sea/25"
             >
               <div className="flex items-center gap-3">
                 <span className="grid size-12 place-items-center rounded-xl bg-ege-sea/15 text-ege-sea-bright ring-1 ring-ege-sea/25">
                   <Icon className="size-6" aria-hidden />
                 </span>
-                <h3 className="text-xl font-semibold text-white">{name}</h3>
+                <h3 className="text-xl font-semibold text-foreground">{name}</h3>
               </div>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate-400">
+              <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                 {blurb}
               </p>
-              <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-6">
+              <ul className="mt-6 space-y-2.5 border-t border-border pt-6">
                 {items.map((item) => (
-                  <li key={item} className="flex gap-2.5 text-[15px] text-slate-300">
+                  <li key={item} className="flex gap-2.5 text-[15px] text-muted-foreground">
                     <Check
                       className="mt-0.5 size-4 shrink-0 text-ege-sea-light"
                       aria-hidden

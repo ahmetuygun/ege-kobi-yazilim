@@ -23,14 +23,14 @@ function ContactCard({
   icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
 }) {
   return (
-    <article className="card-dark flex flex-col rounded-2xl border border-white/10 p-6 sm:p-8">
+    <article className="surface-card flex flex-col rounded-2xl p-6 sm:p-8">
       <div className="flex items-start gap-4">
         <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-ege-sea/15 text-ege-sea-bright ring-1 ring-ege-sea/25">
           <Icon className="size-5" aria-hidden />
         </span>
         <div className="min-w-0 flex-1">
-          <h2 className="text-lg font-semibold text-white">{title}</h2>
-          <div className="mt-3 text-[15px] leading-relaxed text-slate-400">
+          <h2 className="text-lg font-semibold text-foreground">{title}</h2>
+          <div className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
             {children}
           </div>
         </div>
@@ -44,7 +44,7 @@ export function IletisimPageContent() {
 
   return (
     <>
-      <section className="relative isolate min-h-[24rem] overflow-hidden border-b border-white/10 sm:min-h-[28rem]">
+      <section className="relative isolate min-h-[24rem] overflow-hidden border-b border-border sm:min-h-[28rem]">
         <div className="pointer-events-none absolute inset-0">
           <Image
             src={ILETISIM_OFFICE_IMAGE}
@@ -54,13 +54,19 @@ export function IletisimPageContent() {
             sizes="100vw"
             className="object-cover object-center"
           />
+          {/* Açık tema: soldan hafif koyu scrim — metin okunur, foto sağda kalır */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/45"
+            className="absolute inset-0 bg-[linear-gradient(to_right,rgb(15_23_42_/_0.78)_0%,rgb(15_23_42_/_0.48)_32%,rgb(15_23_42_/_0.18)_52%,transparent_70%)] dark:hidden"
+          />
+          {/* Koyu tema: mevcut okunurluk scrimi */}
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden bg-gradient-to-r from-background/92 via-background/72 to-background/40 dark:block"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-slate-950/50"
+            className="absolute inset-0 hidden bg-gradient-to-t from-background/85 via-background/25 to-background/50 dark:block"
           />
         </div>
 
@@ -69,20 +75,20 @@ export function IletisimPageContent() {
             asChild
             variant="outline"
             size="sm"
-            className="mb-8 mt-2 border-white/20 bg-black/25 text-white backdrop-blur hover:bg-white/10 sm:mt-4"
+            className="mb-8 mt-2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/15 sm:mt-4 dark:border-white/20 dark:bg-black/25 dark:text-white dark:hover:bg-white/10"
           >
             <Link href="/">
               <ArrowLeft className="size-4" />
               Ana sayfa
             </Link>
           </Button>
-          <p className="text-sm font-semibold uppercase tracking-wider text-ege-sea-light [text-shadow:0_1px_12px_rgb(0_0_0_/_0.45)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary [text-shadow:0_1px_14px_rgb(0_0_0_/_0.45)] dark:text-ege-sea-light dark:[text-shadow:0_1px_12px_rgb(0_0_0_/_0.45)]">
             Bize ulaşın
           </p>
-          <h1 className="mt-2 text-balance text-3xl font-bold tracking-tight text-white [text-shadow:0_2px_24px_rgb(0_0_0_/_0.5)] sm:text-4xl md:text-5xl">
+          <h1 className="mt-2 text-balance text-3xl font-bold tracking-tight text-white [text-shadow:0_2px_20px_rgb(0_0_0_/_0.45)] sm:text-4xl md:text-5xl dark:text-white dark:[text-shadow:0_2px_24px_rgb(0_0_0_/_0.5)]">
             İletişim
           </h1>
-          <p className="mt-12 max-w-xl text-lg leading-relaxed text-white/90 [text-shadow:0_1px_14px_rgb(0_0_0_/_0.45)] sm:mt-4">
+          <p className="mt-12 max-w-xl text-lg leading-relaxed text-white/90 [text-shadow:0_1px_12px_rgb(0_0_0_/_0.35)] sm:mt-4 dark:text-white/90 dark:[text-shadow:0_1px_14px_rgb(0_0_0_/_0.45)]">
             Projeleriniz, entegrasyon ihtiyaçlarınız veya demo talepleriniz için
             aşağıdaki ileti bilgilerini kullanarak bize ulaşabilirsiniz.
           </p>
@@ -91,7 +97,7 @@ export function IletisimPageContent() {
 
       <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <ContactCard title="Ofis" icon={MapPin}>
-          <p className="text-slate-300">
+          <p className="text-muted-foreground">
             {OFFICE_STREET_ADDRESS}
             <br />
             {OFFICE_ADDRESS_LOCALITY}
@@ -107,15 +113,15 @@ export function IletisimPageContent() {
         </ContactCard>
 
         <ContactCard title="E-posta" icon={Mail}>
-          <p className="font-medium text-white">{CONTACT_EMAIL}</p>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="font-medium text-foreground">{CONTACT_EMAIL}</p>
+          <p className="mt-2 text-sm text-muted-foreground">
             Adresi kopyalayıp e-posta uygulamanızdan yazın.
           </p>
         </ContactCard>
 
         <ContactCard title="Telefon" icon={Phone}>
-          <p className="font-medium text-white">{CONTACT_PHONE_DISPLAY}</p>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="font-medium text-foreground">{CONTACT_PHONE_DISPLAY}</p>
+          <p className="mt-2 text-sm text-muted-foreground">
             Numarayı kopyalayıp arama uygulamanızdan kullanabilirsiniz.
           </p>
         </ContactCard>

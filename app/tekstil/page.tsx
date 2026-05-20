@@ -37,7 +37,7 @@ export default function TekstilPage() {
     <>
       <Navbar />
 
-      <main id="main" className="flex min-h-svh flex-col bg-ege-surface-deep">
+      <main id="main" className="flex min-h-svh flex-col bg-background">
         <Tekstil360PageContent />
         <ClosingCta />
       </main>

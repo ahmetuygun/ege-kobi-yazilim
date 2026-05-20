@@ -23,7 +23,7 @@ export function ValuesRow() {
     <section
       id="degerler"
       aria-labelledby="degerler-baslik"
-      className="border-t border-white/10 bg-ege-surface-deep py-20 sm:py-24"
+      className="border-t border-border bg-background py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 id="degerler-baslik" className="sr-only">
@@ -32,11 +32,11 @@ export function ValuesRow() {
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {VALUES.map(({ icon: Icon, title, text }) => (
             <div key={title} className="text-center md:text-left">
-              <div className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-white/5 text-ege-sea-bright ring-1 ring-white/10 md:mx-0">
+              <div className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-muted text-ege-sea-bright ring-1 ring-border md:mx-0">
                 <Icon className="size-7" aria-hidden />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
-              <p className="mt-3 text-[16px] leading-relaxed text-slate-400">
+              <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
+              <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground">
                 {text}
               </p>
             </div>

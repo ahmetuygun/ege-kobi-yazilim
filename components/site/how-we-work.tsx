@@ -62,11 +62,11 @@ export function HowWeWork() {
     <section
       id="nasil-calisiyoruz"
       aria-labelledby="nasil-calisiyoruz-baslik"
-      className="relative overflow-hidden border-t border-white/10 bg-ege-surface-mid py-20 sm:py-28"
+      className="relative overflow-hidden border-t border-border bg-secondary py-20 sm:py-28"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-grid-dark opacity-40"
+        className="pointer-events-none absolute inset-0 bg-grid-site opacity-40"
       />
       <div
         aria-hidden
@@ -77,11 +77,11 @@ export function HowWeWork() {
         <div className="mx-auto max-w-3xl text-center">
           <h2
             id="nasil-calisiyoruz-baslik"
-            className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl"
           >
             Nasıl Çalışıyoruz?
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-slate-400">
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             İşletmenizin ihtiyaçlarını analiz ediyor, size özel yazılım çözümlerini
             uçtan uca geliştiriyor ve sürdürülebilir destek sunuyoruz.
           </p>
@@ -94,9 +94,9 @@ export function HowWeWork() {
               return (
                 <Fragment key={step.num}>
                   {index > 0 ? <VerticalConnector /> : null}
-                  <article className="group relative flex min-w-0 flex-1 flex-col rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6 shadow-none ring-1 ring-white/[0.06] backdrop-blur-xl transition duration-300 ease-out hover:-translate-y-1 hover:border-ege-sea/25 hover:shadow-[0_24px_48px_-28px_color-mix(in_oklab,var(--ege-sea)_40%,transparent)] hover:ring-ege-sea/20 sm:p-8 lg:text-center">
+                  <article className="group relative flex min-w-0 flex-1 flex-col rounded-2xl border border-border bg-card/80 p-6 shadow-none ring-1 ring-border/60 backdrop-blur-xl transition duration-300 ease-out hover:-translate-y-1 hover:border-ege-sea/25 hover:shadow-[0_24px_48px_-28px_color-mix(in_oklab,var(--ege-sea)_40%,transparent)] hover:ring-ege-sea/20 sm:p-8 lg:text-center">
                     <div className="flex items-start gap-5 lg:flex-col lg:items-center lg:gap-0">
-                      <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-ege-sea/20 to-white/[0.02] text-ege-sea-bright ring-1 ring-ege-sea/20 transition duration-300 group-hover:from-ege-sea/30 group-hover:shadow-[0_0_24px_-4px_color-mix(in_oklab,var(--ege-sea)_45%,transparent)] sm:size-[4.5rem]">
+                      <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-ege-sea/20 to-muted text-ege-sea-bright ring-1 ring-ege-sea/20 transition duration-300 group-hover:from-ege-sea/30 group-hover:shadow-[0_0_24px_-4px_color-mix(in_oklab,var(--ege-sea)_45%,transparent)] sm:size-[4.5rem]">
                         <Icon
                           className="size-8 stroke-[1.25] sm:size-9"
                           strokeWidth={1.25}
@@ -107,10 +107,10 @@ export function HowWeWork() {
                         <p className="font-mono text-xs font-medium tracking-[0.22em] text-ege-sea-light/85">
                           {step.num}
                         </p>
-                        <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-white sm:text-xl">
+                        <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl">
                           {step.title}
                         </h3>
-                        <p className="mt-3 text-left text-[15px] leading-relaxed text-slate-400 lg:text-center">
+                        <p className="mt-3 text-left text-[15px] leading-relaxed text-muted-foreground lg:text-center">
                           {step.description}
                         </p>
                       </div>
